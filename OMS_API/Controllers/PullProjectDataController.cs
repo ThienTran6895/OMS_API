@@ -29,10 +29,9 @@ namespace OMS_API.Controllers
 
         // POST api/values
         [HttpPost]
-        public ResponseInterface Post(string secretKey, [FromBody] PullProjectData model)
+        public IEnumerable<PullProjectData> Post(string secretKey, [FromBody] PullProjectData model)
         {
-            var result = pullprojectdataRes.GetAllData(ProjectID: model.projectID, SourceID: model.sourceID, DateFrom: model.datefrom, DateEnd: model.dateend);
-            
+            var result = pullprojectdataRes.GetAllData(ProjectID: model.projectID, SourceID: model.sourceID, DateFrom: model.datefrom, DateEnd: model.dateend);            
             return result;
         }
 
